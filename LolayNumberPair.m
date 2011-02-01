@@ -29,6 +29,54 @@
 	return [pairs autorelease];
 }
 
++ (NSInteger) indexForValue:(NSString*) inValue pairs:(NSArray*) pairs {
+	NSInteger i = 0;
+	for (LolayNumberPair* pair in pairs) {
+		if ([inValue isEqualToString:pair.value]) {
+			return i;
+		}
+		i++;
+	}
+	return -1;
+}
+
++ (NSInteger) indexForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
+	NSInteger i = 0;
+	for (LolayNumberPair* pair in pairs) {
+		if ([inKey isEqualToNumber:pair.key]) {
+			return i;
+		}
+		i++;
+	}
+	return -1;
+}
+
++ (NSNumber*) keyForValue:(NSString*) inValue pairs:(NSArray*) pairs {
+	return [self pairForValue:inValue pairs:pairs].key;
+}
+
++ (NSString*) valueForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
+	return [self pairForKey:inKey pairs:pairs].value;
+}
+
++ (LolayNumberPair*) pairForValue:(NSString*) inValue pairs:(NSArray*) pairs {
+	for (LolayNumberPair* pair in pairs) {
+		if ([inValue isEqualToString:pair.value]) {
+			return pair;
+		}
+	}
+	return nil;
+}
+
++ (LolayNumberPair*) pairForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
+	for (LolayNumberPair* pair in pairs) {
+		if ([inKey isEqualToNumber:pair.key]) {
+			return pair;
+		}
+	}
+	return nil;
+}
+
 - (id) initWithKey:(NSNumber*) inKey value:(NSString*) inValue {
 	self = [super init];
 	
