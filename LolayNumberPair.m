@@ -14,7 +14,7 @@
 @implementation LolayNumberPair
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path {
-	NSLog(@"[LolayNumberPair arrayWithContentsOfFile] enter path=%@", path);
+	DLog(@"enter path=%@", path);
 	NSArray* sourcePairs = [[NSArray arrayWithContentsOfFile:path] retain];
 	NSMutableArray* pairs = [[NSMutableArray alloc] initWithCapacity:sourcePairs.count];
 	
