@@ -61,7 +61,7 @@
 
 + (LolayNumberPair*) pairForValue:(NSString*) inValue pairs:(NSArray*) pairs {
 	for (LolayNumberPair* pair in pairs) {
-		if ([inValue isEqualToString:pair.value]) {
+		if (pair.value != nil && [inValue isEqualToString:pair.value]) {
 			return pair;
 		}
 	}
@@ -70,7 +70,7 @@
 
 + (LolayNumberPair*) pairForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
 	for (LolayNumberPair* pair in pairs) {
-		if ([inKey isEqualToNumber:pair.key]) {
+		if (pair.key != nil && [inKey isEqualToNumber:pair.key]) {
 			return pair;
 		}
 	}
