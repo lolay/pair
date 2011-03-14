@@ -13,6 +13,9 @@
 
 @implementation LolayNumberPair
 
+@synthesize key;
+@synthesize value;
+
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path {
 	DLog(@"enter path=%@", path);
 	NSArray* sourcePairs = [[NSArray arrayWithContentsOfFile:path] retain];
