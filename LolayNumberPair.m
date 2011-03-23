@@ -13,8 +13,8 @@
 
 @implementation LolayNumberPair
 
-@synthesize key;
-@synthesize value;
+@synthesize key = key_;
+@synthesize value = value_;
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path {
 	DLog(@"enter path=%@", path);
