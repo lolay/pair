@@ -19,5 +19,6 @@
 + (LolayNumberPair*) pairForKey:(NSNumber*) inKey pairs:(NSArray*) pairs;
 
 - (id) initWithKey:(NSNumber*) inKey value:(NSString*) inValue;
++ (LolayNumberPair*) pairWithKey:(NSNumber*) inKey value:(NSString*) value;
 
 @end

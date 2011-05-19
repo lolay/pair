@@ -2,16 +2,16 @@
 //  Created by Lolay, Inc.
 //  Copyright 2011 Lolay, Inc. All rights reserved.
 //
-#import "LolayNumberPair.h"
+#import "LolayStringPair.h"
 
-@interface LolayNumberPair ()
+@interface LolayStringPair ()
 
-@property (nonatomic, retain, readwrite) NSNumber* key;
+@property (nonatomic, retain, readwrite) NSString* key;
 @property (nonatomic, retain, readwrite) NSString* value;
 
 @end
 
-@implementation LolayNumberPair
+@implementation LolayStringPair
 
 @synthesize key = key_;
 @synthesize value = value_;
@@ -22,7 +22,7 @@
 	NSMutableArray* pairs = [[NSMutableArray alloc] initWithCapacity:sourcePairs.count];
 	
 	for (NSArray* sourcePair in sourcePairs) {
-		LolayNumberPair* pair = [[LolayNumberPair alloc] initWithKey:[sourcePair objectAtIndex:0] value:[sourcePair objectAtIndex:1]];
+		LolayStringPair* pair = [[LolayStringPair alloc] initWithKey:[sourcePair objectAtIndex:0] value:[sourcePair objectAtIndex:1]];
 		[pairs addObject:pair];
 		[pair release];
 	}
@@ -34,7 +34,7 @@
 
 + (NSInteger) indexForValue:(NSString*) inValue pairs:(NSArray*) pairs {
 	NSInteger i = 0;
-	for (LolayNumberPair* pair in pairs) {
+	for (LolayStringPair* pair in pairs) {
 		if ([inValue isEqualToString:pair.value]) {
 			return i;
 		}
@@ -43,10 +43,10 @@
 	return -1;
 }
 
-+ (NSInteger) indexForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
++ (NSInteger) indexForKey:(NSString*) inKey pairs:(NSArray*) pairs {
 	NSInteger i = 0;
-	for (LolayNumberPair* pair in pairs) {
-		if ([inKey isEqualToNumber:pair.key]) {
+	for (LolayStringPair* pair in pairs) {
+		if ([inKey isEqualToString:pair.key]) {
 			return i;
 		}
 		i++;
@@ -54,16 +54,16 @@
 	return -1;
 }
 
-+ (NSNumber*) keyForValue:(NSString*) inValue pairs:(NSArray*) pairs {
++ (NSString*) keyForValue:(NSString*) inValue pairs:(NSArray*) pairs {
 	return [self pairForValue:inValue pairs:pairs].key;
 }
 
-+ (NSString*) valueForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
++ (NSString*) valueForKey:(NSString*) inKey pairs:(NSArray*) pairs {
 	return [self pairForKey:inKey pairs:pairs].value;
 }
 
-+ (LolayNumberPair*) pairForValue:(NSString*) inValue pairs:(NSArray*) pairs {
-	for (LolayNumberPair* pair in pairs) {
++ (LolayStringPair*) pairForValue:(NSString*) inValue pairs:(NSArray*) pairs {
+	for (LolayStringPair* pair in pairs) {
 		if (pair.value != nil && [inValue isEqualToString:pair.value]) {
 			return pair;
 		}
@@ -71,16 +71,16 @@
 	return nil;
 }
 
-+ (LolayNumberPair*) pairForKey:(NSNumber*) inKey pairs:(NSArray*) pairs {
-	for (LolayNumberPair* pair in pairs) {
-		if (pair.key != nil && [inKey isEqualToNumber:pair.key]) {
++ (LolayStringPair*) pairForKey:(NSString*) inKey pairs:(NSArray*) pairs {
+	for (LolayStringPair* pair in pairs) {
+		if (pair.key != nil && [inKey isEqualToString:pair.key]) {
 			return pair;
 		}
 	}
 	return nil;
 }
 
-- (id) initWithKey:(NSNumber*) inKey value:(NSString*) inValue {
+- (id) initWithKey:(NSString*) inKey value:(NSString*) inValue {
 	self = [super init];
 	
 	if (self) {
@@ -91,8 +91,8 @@
 	return self;
 }
 
-+ (LolayNumberPair*) pairWithKey:(NSNumber*) inKey value:(NSString*) value {
-	return [[[LolayNumberPair alloc] initWithKey:inKey value:value] autorelease];
++ (LolayStringPair*) pairWithKey:(NSString*) inKey value:(NSString*) inValue {
+	return [[[LolayStringPair alloc] initWithKey:inKey value:inValue] autorelease];
 }
 
 - (void) dealloc {
