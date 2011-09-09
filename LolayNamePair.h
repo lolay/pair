@@ -10,8 +10,11 @@
 @property (nonatomic, retain, readonly) NSString* detail;
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path;
++ (NSArray*) arrayWithContentsOfFile:(NSString*) path localized:(BOOL) localized;
 
 - (id) initWithName:(NSString*) inName detail:(NSString*) inDetail;
+- (id) initWithName:(NSString*) inName detail:(NSString*) inDetail localized:(BOOL) localized;
 + (LolayNamePair*) pairWithName:(NSString*) inName detail:(NSString*) inDetail;
++ (LolayNamePair*) pairWithName:(NSString*) inName detail:(NSString*) inDetail localized:(BOOL) localized;
 
 @end

@@ -10,6 +10,7 @@
 @property (nonatomic, retain, readonly) NSString* value;
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path;
++ (NSArray*) arrayWithContentsOfFile:(NSString*) path localized:(BOOL) localized;
 
 + (NSInteger) indexForValue:(NSString*) inValue pairs:(NSArray*) pairs;
 + (NSInteger) indexForKey:(NSNumber*) inKey pairs:(NSArray*) pairs;
@@ -19,6 +20,8 @@
 + (LolayNumberPair*) pairForKey:(NSNumber*) inKey pairs:(NSArray*) pairs;
 
 - (id) initWithKey:(NSNumber*) inKey value:(NSString*) inValue;
+- (id) initWithKey:(NSNumber*) inKey value:(NSString*) inValue localized:(BOOL) localized;
 + (LolayNumberPair*) pairWithKey:(NSNumber*) inKey value:(NSString*) value;
++ (LolayNumberPair*) pairWithKey:(NSNumber*) inKey value:(NSString*) value localized:(BOOL) localized;
 
 @end
