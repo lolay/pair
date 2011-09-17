@@ -103,6 +103,32 @@
 	return self;
 }
 
+- (id) initWithCoder:(NSCoder*) decoder {
+	if (! [decoder allowsKeyedCoding]) {
+		[NSException raise:@"Unsupported Archiver" format:@"Only Keyed Archivers are supported"];
+	}
+	
+	self = [super init];
+	
+	if (self) {
+		self.key = [decoder decodeObjectForKey:@"key"];
+		self.rawValue = [decoder decodeObjectForKey:@"rawValue"];
+		self.localized = [decoder decodeBoolForKey:@"localized"];
+	}
+	
+	return self;
+}
+
+- (void) encodeWithCoder:(NSCoder*) encoder {
+	if (! [encoder allowsKeyedCoding]) {
+		[NSException raise:@"Unsupported Archiver" format:@"Only Keyed Archivers are supported"];
+	}
+
+	[encoder encodeObject:self.key forKey:@"key"];
+	[encoder encodeObject:self.rawValue forKey:@"rawValue"];
+	[encoder encodeBool:self.localized forKey:@"localized"];
+}
+
 + (LolayStringPair*) pairWithKey:(NSString*) inKey value:(NSString*) inValue {
 	return [LolayStringPair pairWithKey:inKey value:inValue localized:NO];
 }
@@ -120,6 +146,17 @@
 	self.rawValue = nil;
 	
 	[super dealloc];
+}
+
+#pragma mark - NSObject
+
+- (NSString*) description {
+	NSMutableString* description = [NSMutableString stringWithCapacity:64];
+	[description appendString:@"<LolayStringPair "];
+	[description appendFormat:@"key=%@,", self.key];
+	[description appendFormat:@"value=%@,", self.value];
+	[description appendString:@">"];
+	return description;
 }
 
 @end

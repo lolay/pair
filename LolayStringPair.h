@@ -4,7 +4,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@interface LolayStringPair : NSObject
+@interface LolayStringPair : NSObject <NSCoding>
 
 @property (nonatomic, retain, readonly) NSString* key;
 @property (nonatomic, retain, readonly) NSString* value;
