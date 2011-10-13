@@ -25,18 +25,15 @@
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path localized:(BOOL) localized {
 	DLog(@"enter path=%@", path);
-	NSArray* sourcePairs = [[NSArray arrayWithContentsOfFile:path] retain];
+	NSArray* sourcePairs = [NSArray arrayWithContentsOfFile:path];
 	NSMutableArray* pairs = [[NSMutableArray alloc] initWithCapacity:sourcePairs.count];
 	
 	for (NSArray* sourcePair in sourcePairs) {
 		LolayNamePair* pair = [[LolayNamePair alloc] initWithName:[sourcePair objectAtIndex:0] detail:[sourcePair objectAtIndex:1]];
 		[pairs addObject:pair];
-		[pair release];
 	}
 	
-	[sourcePairs release];
-	
-	return [pairs autorelease];
+	return pairs;
 }
 
 - (id) initWithName:(NSString*) inName detail:(NSString*) inDetail {
@@ -60,14 +57,7 @@
 }
 
 + (LolayNamePair*) pairWithName:(NSString*) inName detail:(NSString*) inDetail localized:(BOOL) localized {
-	return [[[LolayNamePair alloc] initWithName:inName detail:inDetail localized:localized] autorelease];
-}
-
-- (void) dealloc {
-	self.name = nil;
-	self.rawDetail = nil;
-	
-	[super dealloc];
+	return [[LolayNamePair alloc] initWithName:inName detail:inDetail localized:localized];
 }
 
 @end
