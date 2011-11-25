@@ -6,8 +6,8 @@
 
 @interface LolayNumberPair ()
 
-@property (nonatomic, retain, readwrite) NSNumber* key;
-@property (nonatomic, retain, readwrite) NSString* rawValue;
+@property (nonatomic, strong, readwrite) NSNumber* key;
+@property (nonatomic, strong, readwrite) NSString* rawValue;
 @property (nonatomic, assign, readwrite) BOOL localized;
 
 @end

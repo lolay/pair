@@ -7,7 +7,7 @@
 @interface LolayStringPair ()
 
 @property (nonatomic, retain, readwrite) NSString* key;
-@property (nonatomic, retain, readwrite) NSString* rawValue;
+@property (nonatomic, strong, readwrite) NSString* rawValue;
 @property (nonatomic, assign, readwrite) BOOL localized;
 
 @end

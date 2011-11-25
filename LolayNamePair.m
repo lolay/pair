@@ -6,8 +6,8 @@
 
 @interface LolayNamePair ()
 
-@property (nonatomic, retain, readwrite) NSString* name;
-@property (nonatomic, retain, readwrite) NSString* rawDetail;
+@property (nonatomic, strong, readwrite) NSString* name;
+@property (nonatomic, strong, readwrite) NSString* rawDetail;
 @property (nonatomic, assign, readwrite) BOOL localized;
 
 @end

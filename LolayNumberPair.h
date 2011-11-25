@@ -6,8 +6,8 @@
 
 @interface LolayNumberPair : NSObject
 
-@property (nonatomic, retain, readonly) NSNumber* key;
-@property (nonatomic, retain, readonly) NSString* value;
+@property (nonatomic, strong, readonly) NSNumber* key;
+@property (nonatomic, strong, readonly) NSString* value;
 
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path;
 + (NSArray*) arrayWithContentsOfFile:(NSString*) path localized:(BOOL) localized;
