@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 #import "LolayStringPair.h"
+#import "LolayPairGlobals.h"
 
 @interface LolayStringPair ()
 
