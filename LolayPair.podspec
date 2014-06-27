@@ -16,7 +16,5 @@ Pod::Spec.new do |s|
     }
     s.source_files      = 'LolayPairGlobals.*','LolayNamePair.*','LolayNumberPair.h.*','LolayStringPair.*','LolayPairTests.*','LolayInvestigo/LolayNSLogTracker.*','LolayInvestigo/LolayNoTracker.*'
     s.requires_arc      = true
-	s.frameworks = 'XCTest','Foundation'
 	s.ios.deployment_target = '7.0'
-	s.xcconfig        = { 'OTHER_LDFLAGS' => '-ObjC'}
 end
